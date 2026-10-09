@@ -12,7 +12,6 @@ const SHELL_FILES = [
   "./icons/icon-192.svg",
   "./icons/icon-512.svg",
   "./icons/icon-maskable-512.svg",
-  "./icons/logo_taicimaster.png"
 ];
 
 self.addEventListener("install", event => {
