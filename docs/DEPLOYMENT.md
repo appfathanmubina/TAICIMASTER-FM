@@ -14,7 +14,7 @@ URL `/exec` menjalankan versi deployment Apps Script yang dipublikasikan; peruba
 Shell saat ini berfungsi sebagai pintu masuk PWA dan meneruskan pengguna ke Web App Apps Script melalui navigasi tingkat atas. Model ini sengaja tidak membungkus aplikasi dalam iframe. Navigasi lintas-origin dapat membuat pengguna meninggalkan konteks tampilan standalone shell; hal ini wajib diuji di Android dan iOS.
 
 ## 4. Logo
-File `frontend/icons/logo_taicimaster.png` tidak ditemukan pada branch `main` maupun baseline repository lama yang dapat diakses saat audit. Saya tidak menggantinya dengan logo lain agar identitas merek tidak keliru. Untuk memakai logo resmi tersebut, aset harus tersedia kembali di branch kerja dengan path itu.
+File resmi `frontend/icons/logo_taicimaster.png` tersedia pada branch kerja dan sekarang dipakai sebagai logo pada halaman shell PWA. Ikon SVG tetap dipertahankan untuk ikon instalasi lintas platform; validasi tampilan dan instalasi nyata tetap perlu dilakukan di perangkat Android dan iOS.
 
 ## 5. Batas offline dan cache
 Service worker hanya men-cache aset shell statis same-origin. Fungsi aplikasi, login, API, dan data tetap memerlukan koneksi internet. Jangan menambahkan strategi cache untuk respons backend atau data pengguna tanpa audit keamanan tersendiri.
