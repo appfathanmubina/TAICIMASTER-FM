@@ -1,7 +1,7 @@
 /* TAICIMASTER FM PWA shell only.
  * Do not cache cross-origin requests, Apps Script responses, or user data.
  */
-const CACHE_NAME = "taicimaster-pwa-shell-11.28.6-1";
+const CACHE_NAME = "taicimaster-pwa-shell-11.28.6-2";
 const SHELL_FILES = [
   "./",
   "./index.html",
@@ -11,7 +11,8 @@ const SHELL_FILES = [
   "./offline.html",
   "./icons/icon-192.svg",
   "./icons/icon-512.svg",
-  "./icons/icon-maskable-512.svg"
+  "./icons/icon-maskable-512.svg",
+  "./icons/logo_taicimaster.png"
 ];
 
 self.addEventListener("install", event => {
@@ -45,7 +46,7 @@ self.addEventListener("fetch", event => {
 
   event.respondWith(
     fetch(request).then(response => {
-      if (response.ok && (url.pathname.endsWith(".js") || url.pathname.endsWith(".json") || url.pathname.endsWith(".svg") || url.pathname.endsWith(".css") || url.pathname.endsWith(".html"))) {
+      if (response.ok && (url.pathname.endsWith(".js") || url.pathname.endsWith(".json") || url.pathname.endsWith(".svg") || url.pathname.endsWith(".png") || url.pathname.endsWith(".css") || url.pathname.endsWith(".html"))) {
         const copy = response.clone();
         caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
       }
