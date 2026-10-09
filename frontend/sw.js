@@ -1,7 +1,7 @@
 /* TAICIMASTER FM PWA shell only.
  * Do not cache cross-origin requests, Apps Script responses, or user data.
  */
-const CACHE_NAME = "taicimaster-pwa-shell-11.28.6-2";
+const CACHE_NAME = "taicimaster-pwa-shell-11.28.6-3";
 const SHELL_FILES = [
   "./",
   "./index.html",
