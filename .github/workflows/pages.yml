@@ -1,0 +1,43 @@
+name: Deploy TAICIMASTER FM PWA
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "frontend/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "github-pages"
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Validate PWA manifest
+        run: |
+          python - <<'PY'
+          import json
+          with open("frontend/manifest.json", encoding="utf-8") as f:
+              manifest = json.load(f)
+          assert manifest.get("name") and manifest.get("start_url") and manifest.get("icons")
+          print("PWA manifest JSON valid")
+          PY
+      - name: Upload frontend shell
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
