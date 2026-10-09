@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4b238c">
+  <meta name="description" content="Aplikasi TAICIMASTER FM">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>TAICIMASTER FM</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon-192.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/icon-192.svg">
+  <style>
+    :root { color-scheme: dark; --bg:#160f2d; --panel:#211642; --purple:#7045b8; --gold:#f2c66d; --text:#fffaf0; --muted:#d0c7e1; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    body { min-height:100svh; display:grid; place-items:center; padding:24px; color:var(--text); background:radial-gradient(ellipse at top,#3c216d 0%,var(--bg) 65%); }
+    main { width:min(100%,480px); text-align:center; padding:clamp(24px,6vw,40px); border:1px solid #ffffff22; border-radius:28px; background:linear-gradient(145deg,#2c1c4d,#1a1231); box-shadow:0 24px 70px #0006; }
+    .brand { width:104px;height:104px;margin:0 auto 20px; }
+    h1 { margin:0; font-size:clamp(1.55rem,5vw,2rem); letter-spacing:.02em; }
+    .subtitle { margin:8px 0 24px;color:var(--gold);font-weight:650; }
+    #launch-status { min-height:3em; line-height:1.55; color:var(--muted); }
+    button { border:0;border-radius:14px;padding:14px 22px;background:linear-gradient(110deg,#f2c66d,#ffe6a5);color:#2b1948;font-weight:800;font-size:1rem;cursor:pointer; }
+    #setup-note { margin-top:20px;text-align:left;padding:14px;border-radius:14px;background:#100b20;color:#e5dff0;font-size:.92rem;line-height:1.6; }
+    #setup-note code { color:var(--gold);overflow-wrap:anywhere; }
+    footer { margin-top:26px;font-size:.8rem;color:#a99bbb; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="brand" src="./icons/icon-192.svg" alt="Logo TAICIMASTER FM">
+    <h1>TAICIMASTER FM</h1>
+    <p class="subtitle">Aplikasi Pesantren</p>
+    <p id="launch-status" role="status" aria-live="polite">Memeriksa konfigurasi aplikasi…</p>
+    <button id="launch-button" type="button" hidden>Buka Aplikasi</button>
+    <section id="setup-note" hidden>
+      <strong>Konfigurasi deployment diperlukan</strong>
+      <p>Buka <code>frontend/config.js</code>, lalu isi <code>APP_URL</code> dengan URL Web App Apps Script aktif yang berakhiran <code>/exec</code>. Setelah itu uji login, sesi, hak akses, pencarian global, tombol mengambang, dan modul utama sebelum rilis.</p>
+      <p>Shell ini tidak menyimpan data aplikasi atau respons API ke cache offline.</p>
+    </section>
+    <footer>TAICIMASTER FM · PWA shell</footer>
+  </main>
+  <script src="./config.js"></script>
+  <script src="./launch.js"></script>
+</body>
+</html>
